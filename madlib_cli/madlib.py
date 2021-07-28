@@ -61,11 +61,11 @@ def merge(text, user_input):
     fulltext = text.format(*user_input)
     with open('assets/output_file.txt', 'w') as file:
         file.write(fulltext)
-    print(read_template('assets/message.txt'))
+    return read_template('assets/output_file.txt')
 
 
-print(read_template('assets/first_templet.txt'))
-text = read_template('assets/first_templet.txt')
-tuble = parse_template(text)
-user_input = get_user_input(tuble[1])
-merge(tuble[0], user_input)
+if __name__ == "__main__":
+    text = read_template('assets/first_templet.txt')
+    tuble = parse_template(text)
+    user_input = get_user_input(tuble[1])
+    print(merge(tuble[0], user_input))
